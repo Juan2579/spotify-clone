@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Figtree } from "next/font/google";
 import "./globals.css";
 
+import { Sidebar } from "@/components/Shared/Sidebar/Sidebar";
+
 const figtree = Figtree({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -16,7 +18,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={figtree.className}>{children}</body>
+      <body className={`${figtree.className} h-full flex p-2 gap-2`}>
+        <Sidebar />
+        {children}
+      </body>
     </html>
   );
 }
